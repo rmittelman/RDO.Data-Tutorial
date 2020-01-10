@@ -12,7 +12,8 @@ namespace Movies
             string attachDbFilename = Path.Combine(dbFolder, "Movies.mdf");
             File.Copy(Path.Combine(dbFolder, "EmptyDb.mdf"), attachDbFilename, true);
             File.Copy(Path.Combine(dbFolder, "EmptyDb_log.ldf"), Path.Combine(dbFolder, "Movies_log.ldf"), true);
-            var connectionString = string.Format(@"Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=""{0}"";Integrated Security=True", attachDbFilename);
+            //var connectionString = string.Format(@"Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=""{0}"";Integrated Security=True", attachDbFilename);
+            var connectionString = $@"Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=""{attachDbFilename}"";Integrated Security=True";
             return new Db(connectionString);
         }
     }

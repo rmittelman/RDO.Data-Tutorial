@@ -13,7 +13,8 @@ namespace Movies
             string mdfFilename = "EmptyDb.mdf";
             string outputFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string attachDbFilename = Path.Combine(outputFolder, mdfFilename);
-            return string.Format(@"Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=""{0}"";Integrated Security=True", attachDbFilename);
+            //return string.Format(@"Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=""{0}"";Integrated Security=True", attachDbFilename);
+            return $@"Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=""{attachDbFilename}"";Integrated Security=True";
         }
 
         private static Db CreateDb()
